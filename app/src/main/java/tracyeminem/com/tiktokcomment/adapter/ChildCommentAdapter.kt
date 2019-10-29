@@ -3,6 +3,7 @@ package tracyeminem.com.peipei.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import me.drakeet.multitype.ItemViewBinder
 import tracyeminem.com.peipei.model.ChildComment
@@ -14,7 +15,7 @@ import tracyeminem.com.tiktokcomment.R
 class ChildCommentAdapter : ItemViewBinder<ChildComment, ChildCommentAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, item: ChildComment) {
-
+        holder.text.text = item.data
     }
 
     override fun onCreateViewHolder(inflater: LayoutInflater, parent: ViewGroup): ViewHolder {
@@ -23,7 +24,7 @@ class ChildCommentAdapter : ItemViewBinder<ChildComment, ChildCommentAdapter.Vie
 
 
     open class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
+        var text: TextView = itemView.findViewById(R.id.tvchild)
     }
 
 }

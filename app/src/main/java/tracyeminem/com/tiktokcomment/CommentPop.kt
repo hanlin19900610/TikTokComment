@@ -36,7 +36,7 @@ class CommentPop(context: Context) : BottomPopupView(context){
         val parentCommentAdapter = ParentCommentAdapter()
         val childCommentAdapter = ChildCommentAdapter()
 
-        items = ArrayList()
+        items = mutableListOf()
         multiTypeAdapter = MultiTypeAdapter()
         multiTypeAdapter!!.register(loadMoreAdapter)
         multiTypeAdapter!!.register(parentCommentAdapter)
@@ -63,7 +63,7 @@ class CommentPop(context: Context) : BottomPopupView(context){
         loadMoreAdapter.onLoadMoreInterface = object : LoadMoreAdapter.onLoadMore {
             override fun onLoadMore(position: Int) {
                 for(i in 0..5) {
-                    items.add(position, ChildComment("child"))
+                    items.add(position+i, ChildComment("child= $i"))
                 }
                 multiTypeAdapter!!.items = items
                 multiTypeAdapter!!.notifyItemRangeInserted(position,6)
